@@ -1,0 +1,47 @@
+{
+  "user_id": "USER_001",
+  "identity_verification": {
+    "score": 97.66,
+    "status": "VERIFIED"
+  },
+  "deepfake_detection": {
+    "fake_probability": 72.9,
+    "status": "REVIEW"
+  },
+  "voice_authentication": {
+    "score": 71.48
+  },
+  "document_intelligence": {
+    "score": 87.78
+  },
+  "device_intelligence": {
+    "score": 100.0
+  },
+  "behavioral_biometrics": {
+    "score": 88.75
+  },
+  "geo_location": {
+    "score": 100.0
+  },
+  "historical_activity": {
+    "score": 92.4
+  },
+  "risk_indicators": {
+    "score": 85.25,
+    "risk_level": "LOW"
+  },
+  "trust_scoring": {
+    "score": 80.36,
+    "risk_level": "LOW"
+  },
+  "face_comparison": {
+    "similarity": 0.8606,
+    "match": true,
+    "threshold": 0.7
+  },
+  "ai_copilot": {
+    "verification_checks": 6,
+    "passed": 6,
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "component": "Whisper",
+  "purpose": [
+    "speech_to_text",
+    "voice_transcription",
+    "voice_authentication_support",
+    "audio_content_analysis"
+  ],
+  "model": "tiny",
+  "integration_status": "IMPLEMENTED"
+}

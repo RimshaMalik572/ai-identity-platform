@@ -1,0 +1,15 @@
+{
+  "module": "LangGraph Integration",
+  "package": "langgraph",
+  "configuration_created": true,
+  "workflow_created": true,
+  "workflow_compiled": true,
+  "controlled_test": "PASS",
+  "workflow_nodes": [
+    "collect_identity_evidence",
+    "assess_deepfake_signal",
+    "calculate_risk",
+    "make_decision"
+  ],
+  "status": "VERIFIED"
+}

@@ -1,0 +1,31 @@
+{
+  "module": "End-to-End Identity Platform Integration",
+  "status": "VERIFIED",
+  "verification_timestamp": "2026-09-02T02:07:43.844844+00:00",
+  "pipeline_verified": [
+    "Identity Verification",
+    "Deepfake Detection",
+    "Voice Authentication",
+    "Document Intelligence",
+    "Device Intelligence",
+    "Behavioral Biometrics",
+    "Geo-location",
+    "Historical Activity",
+    "Risk Indicators",
+    "Face Comparison",
+    "Fraud Intelligence",
+    "Trust Scoring",
+    "Alert Generation",
+    "Event Schema"
+  ],
+  "external_services": {
+    "PostgreSQL": "CONFIGURED_NOT_CONNECTED",
+    "Redis": "CONFIGURED_NOT_CONNECTED",
+    "Kafka": "CONFIGURED_NOT_CONNECTED",
+    "Neo4j": "CONFIGURED_NOT_CONNECTED"
+  },
+  "final_decision": "MANUAL_REVIEW",
+  "fraud_risk_level": "MEDIUM",
+  "fraud_risk_score": 50.0,
+  "active_alerts": 2
+}

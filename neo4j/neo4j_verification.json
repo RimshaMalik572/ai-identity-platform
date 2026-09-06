@@ -1,0 +1,11 @@
+{
+  "module": "Neo4j Integration",
+  "driver": "neo4j-python-driver",
+  "configuration_created": true,
+  "cypher_schema_created": true,
+  "graph_service_created": true,
+  "graph_model_created": true,
+  "connection_status": "NOT_CONNECTED",
+  "connection_verified": false,
+  "status": "CONFIGURED"
+}

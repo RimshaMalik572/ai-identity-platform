@@ -1,0 +1,13 @@
+{
+  "cache_keys": {
+    "verification": "identity:verification:{user_id}",
+    "trust_score": "identity:trust:{user_id}",
+    "risk_state": "identity:risk:{user_id}"
+  },
+  "default_ttl_seconds": 3600,
+  "operations": [
+    "SETEX",
+    "GET",
+    "PING"
+  ]
+}

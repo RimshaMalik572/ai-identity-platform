@@ -1,0 +1,16 @@
+{
+  "database": "ai_identity",
+  "host": "localhost",
+  "port": 5432,
+  "user": "ai_identity_user",
+  "password": "ENV_POSTGRES_PASSWORD",
+  "driver": "psycopg2",
+  "connection_status": "CONFIGURED_NOT_CONNECTED",
+  "tables": [
+    "identity_verifications",
+    "fraud_signals",
+    "trust_scores",
+    "alerts",
+    "platform_events"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "module": "YOLOv11 Integration",
+  "package": "ultralytics",
+  "model_family": "YOLO11",
+  "configuration_created": true,
+  "service_adapter_created": true,
+  "import_verified": true,
+  "model_initialization": "INITIALIZED",
+  "status": "VERIFIED"
+}

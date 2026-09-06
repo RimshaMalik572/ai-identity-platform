@@ -1,0 +1,15 @@
+{
+  "module": "PostgreSQL Integration",
+  "driver": "psycopg2",
+  "schema_created": true,
+  "adapter_created": true,
+  "required_tables": {
+    "identity_verifications": true,
+    "fraud_signals": true,
+    "trust_scores": true,
+    "alerts": true,
+    "platform_events": true
+  },
+  "database_connection": "NOT_TESTED_WITHOUT_DATABASE_SERVER",
+  "status": "CONFIGURED"
+}

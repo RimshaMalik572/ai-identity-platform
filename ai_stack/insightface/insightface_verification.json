@@ -1,0 +1,14 @@
+{
+  "module": "InsightFace Integration",
+  "package_import": true,
+  "configuration_created": true,
+  "service_adapter_created": true,
+  "model": "buffalo_l",
+  "capabilities": [
+    "face_detection",
+    "face_recognition",
+    "face_embedding",
+    "face_analysis"
+  ],
+  "status": "IMPLEMENTED"
+}

@@ -1,0 +1,24 @@
+{
+  "module": "Fraud Intelligence Layer",
+  "status": "IMPLEMENTED",
+  "purpose": "Aggregate identity, biometric, behavioral, device, geographic and historical fraud signals",
+  "signal_sources": [
+    "identity_verification",
+    "deepfake_detection",
+    "voice_authentication",
+    "document_intelligence",
+    "device_intelligence",
+    "behavioral_biometrics",
+    "geo_location",
+    "historical_activity",
+    "risk_indicators",
+    "face_comparison"
+  ],
+  "outputs": [
+    "fraud_risk_score",
+    "risk_level",
+    "fraud_indicators",
+    "recommended_action"
+  ],
+  "architecture_role": "Fraud Intelligence Layer"
+}

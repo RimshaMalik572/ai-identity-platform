@@ -1,0 +1,11 @@
+{
+  "module": "PaddleOCR Integration",
+  "package": "paddleocr",
+  "backend": "paddlepaddle",
+  "language": "en",
+  "configuration_created": true,
+  "service_adapter_created": true,
+  "import_verified": true,
+  "initialization": "INITIALIZED",
+  "status": "VERIFIED"
+}

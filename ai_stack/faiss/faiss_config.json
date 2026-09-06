@@ -1,0 +1,13 @@
+{
+  "component": "FAISS",
+  "purpose": [
+    "identity_evidence_retrieval",
+    "fraud_case_similarity",
+    "semantic_search",
+    "biometric_embedding_retrieval",
+    "knowledge_retrieval"
+  ],
+  "index_type": "IndexFlatL2",
+  "metric": "L2",
+  "integration_status": "IMPLEMENTED"
+}

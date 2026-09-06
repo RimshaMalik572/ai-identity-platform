@@ -1,0 +1,10 @@
+{
+  "module": "Whisper Integration",
+  "package": "openai-whisper",
+  "model": "tiny",
+  "configuration_created": true,
+  "service_adapter_created": true,
+  "import_verified": true,
+  "model_initialization": "INITIALIZED",
+  "status": "VERIFIED"
+}

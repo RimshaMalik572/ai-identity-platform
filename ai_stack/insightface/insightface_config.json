@@ -1,0 +1,12 @@
+{
+  "component": "InsightFace",
+  "purpose": [
+    "face_detection",
+    "face_recognition",
+    "face_embedding",
+    "face_analysis"
+  ],
+  "backend": "onnxruntime",
+  "integration_status": "IMPLEMENTED",
+  "verification_mode": "IMPORT_AND_MODEL_CONFIGURATION"
+}

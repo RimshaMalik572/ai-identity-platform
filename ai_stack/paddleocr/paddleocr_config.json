@@ -1,0 +1,11 @@
+{
+  "component": "PaddleOCR",
+  "purpose": [
+    "document_text_extraction",
+    "identity_document_ocr",
+    "text_detection",
+    "text_recognition"
+  ],
+  "language": "en",
+  "integration_status": "IMPLEMENTED"
+}

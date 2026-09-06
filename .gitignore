@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Large model files
+*.pt
+*.pth
+*.onnx
+*.bin
+*.safetensors
+
+# Datasets
+data/
+datasets/
+
+# Runtime/cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db

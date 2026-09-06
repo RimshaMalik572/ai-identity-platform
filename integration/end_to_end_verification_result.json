@@ -1,0 +1,67 @@
+{
+  "platform": "AI Identity Platform",
+  "user_id": "USER_001",
+  "identity_verification_score": 97.66,
+  "deepfake_probability": 72.9,
+  "voice_score": 71.48,
+  "document_score": 87.78,
+  "device_score": 100.0,
+  "behavioral_score": 88.75,
+  "geo_score": 100.0,
+  "historical_score": 92.4,
+  "risk_indicators_score": 85.25,
+  "trust_score": 80.36,
+  "face_similarity": 0.8606,
+  "fraud_intelligence": {
+    "fraud_risk_score": 50.0,
+    "risk_level": "MEDIUM",
+    "fraud_indicators": [
+      {
+        "type": "deepfake_risk",
+        "severity": "HIGH",
+        "value": 72.9,
+        "description": "Elevated deepfake probability detected"
+      }
+    ],
+    "indicator_count": 1,
+    "recommended_action": "ADDITIONAL_VERIFICATION"
+  },
+  "alerts": [
+    {
+      "alert_type": "deepfake_alert",
+      "severity": "HIGH",
+      "status": "ACTIVE",
+      "value": 72.9,
+      "message": "Elevated deepfake probability detected"
+    },
+    {
+      "alert_type": "manual_review_alert",
+      "severity": "HIGH",
+      "status": "ACTIVE",
+      "value": 80.36,
+      "message": "Identity verification requires manual review"
+    }
+  ],
+  "event": {
+    "event_id": "EVT-USER-001-INTEGRATION-001",
+    "event_type": "identity.verification.completed",
+    "user_id": "USER_001",
+    "timestamp": "2026-09-02T02:07:43.842987+00:00",
+    "payload": {
+      "identity_score": 97.66,
+      "deepfake_probability": 72.9,
+      "trust_score": 80.36,
+      "fraud_risk_score": 50.0,
+      "fraud_risk_level": "MEDIUM",
+      "final_decision": "MANUAL_REVIEW",
+      "alert_count": 2
+    },
+    "delivery_status": "EVENT_SCHEMA_READY",
+    "broker_status": "KAFKA_NOT_CONNECTED"
+  },
+  "final_decision": "MANUAL_REVIEW",
+  "decision_reasons": [
+    "Elevated deepfake probability"
+  ],
+  "integration_status": "VERIFIED"
+}

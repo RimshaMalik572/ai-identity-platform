@@ -1,0 +1,24 @@
+{
+  "component": "API Gateway",
+  "framework": "FastAPI",
+  "version": "1.0.0",
+  "base_path": "/api/v1",
+  "endpoints": [
+    "/health",
+    "/api/v1/identity/verify",
+    "/api/v1/fraud/signals",
+    "/api/v1/trust/score",
+    "/api/v1/biometric/status",
+    "/api/v1/graph/status",
+    "/api/v1/alerts",
+    "/api/v1/events/publish"
+  ],
+  "architecture_layers": [
+    "API Gateway",
+    "Identity Verification Pipeline",
+    "Biometric Processing Pipeline",
+    "Fraud Intelligence Layer",
+    "Knowledge Graph",
+    "Event-Driven Architecture"
+  ]
+}

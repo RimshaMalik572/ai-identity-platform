@@ -1,0 +1,38 @@
+{
+  "module": "Fraud Intelligence Layer",
+  "status": "VERIFIED",
+  "verification_timestamp": "2026-09-02T02:06:42.353229Z",
+  "controlled_test": {
+    "user_id": "USER_001",
+    "input_signals": {
+      "identity_verification_score": 97.66,
+      "deepfake_probability": 72.9,
+      "voice_score": 71.48,
+      "document_score": 87.78,
+      "device_score": 100.0,
+      "behavioral_score": 88.75,
+      "geo_score": 100.0,
+      "historical_score": 92.4
+    },
+    "output": {
+      "fraud_risk_score": 50.0,
+      "risk_level": "MEDIUM",
+      "fraud_indicators": [
+        {
+          "type": "deepfake_risk",
+          "severity": "HIGH",
+          "value": 72.9,
+          "description": "Elevated deepfake probability detected"
+        }
+      ],
+      "indicator_count": 1,
+      "recommended_action": "ADDITIONAL_VERIFICATION"
+    }
+  },
+  "validation": {
+    "risk_score_calculation": true,
+    "risk_classification": true,
+    "fraud_indicator_detection": true,
+    "recommended_action": true
+  }
+}

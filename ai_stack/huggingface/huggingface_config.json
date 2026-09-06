@@ -1,0 +1,12 @@
+{
+  "component": "Hugging Face Transformers",
+  "purpose": [
+    "text_classification",
+    "identity_document_text_analysis",
+    "fraud_text_analysis",
+    "semantic_embeddings",
+    "natural_language_analysis"
+  ],
+  "framework": "transformers",
+  "integration_status": "IMPLEMENTED"
+}

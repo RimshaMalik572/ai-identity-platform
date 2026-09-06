@@ -1,0 +1,65 @@
+{
+  "identity.verification": {
+    "event_type": "identity.verification.completed",
+    "required_fields": [
+      "event_id",
+      "user_id",
+      "verification_score",
+      "decision",
+      "timestamp"
+    ]
+  },
+  "biometric.processing": {
+    "event_type": "biometric.processing.completed",
+    "required_fields": [
+      "event_id",
+      "user_id",
+      "pipeline",
+      "status",
+      "timestamp"
+    ]
+  },
+  "fraud.signals": {
+    "event_type": "fraud.signal.detected",
+    "required_fields": [
+      "event_id",
+      "user_id",
+      "signal_type",
+      "severity",
+      "score",
+      "timestamp"
+    ]
+  },
+  "trust.score": {
+    "event_type": "trust.score.calculated",
+    "required_fields": [
+      "event_id",
+      "user_id",
+      "trust_score",
+      "risk_level",
+      "timestamp"
+    ]
+  },
+  "identity.alerts": {
+    "event_type": "identity.alert.created",
+    "required_fields": [
+      "event_id",
+      "user_id",
+      "alert_type",
+      "severity",
+      "status",
+      "timestamp"
+    ]
+  },
+  "identity.events": {
+    "event_type": "identity.platform.event",
+    "required_fields": [
+      "event_id",
+      "event_type",
+      "user_id",
+      "source",
+      "payload",
+      "timestamp"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "component": "YOLOv11",
+  "framework": "Ultralytics",
+  "model_family": "YOLO11",
+  "purpose": [
+    "object_detection",
+    "face_related_detection",
+    "document_region_detection",
+    "identity_scene_analysis"
+  ],
+  "integration_status": "IMPLEMENTED"
+}

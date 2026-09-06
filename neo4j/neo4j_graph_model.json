@@ -1,0 +1,30 @@
+{
+  "user": {
+    "label": "User",
+    "example_id": "USER_001"
+  },
+  "device": {
+    "label": "Device",
+    "example_id": "DEVICE_001"
+  },
+  "document": {
+    "label": "Document",
+    "example_id": "DOC_001"
+  },
+  "phone": {
+    "label": "PhoneNumber",
+    "example_id": "PHONE_001"
+  },
+  "ip": {
+    "label": "IPAddress",
+    "example_id": "IP_001"
+  },
+  "biometric": {
+    "label": "BiometricProfile",
+    "example_id": "BIO_001"
+  },
+  "fraud_case": {
+    "label": "FraudCase",
+    "example_id": "FRAUD_001"
+  }
+}

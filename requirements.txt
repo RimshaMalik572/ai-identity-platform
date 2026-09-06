@@ -1,0 +1,33 @@
+# AI Identity Platform
+# Backend
+fastapi
+uvicorn
+pydantic
+psycopg2-binary
+redis
+kafka-python
+neo4j
+
+# AI / Computer Vision
+torch
+torchvision
+opencv-python
+insightface
+ultralytics
+openai-whisper
+paddleocr
+paddlepaddle
+transformers
+sentencepiece
+langgraph
+faiss-cpu
+networkx
+
+# Face / Embeddings
+keras-facenet
+tensorflow
+
+# Utilities
+numpy
+Pillow
+requests

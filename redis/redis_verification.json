@@ -1,0 +1,10 @@
+{
+  "module": "Redis Integration",
+  "client": "redis-py",
+  "configuration_created": true,
+  "adapter_created": true,
+  "cache_strategy_created": true,
+  "connection_status": "NOT_CONNECTED",
+  "connection_verified": false,
+  "status": "CONFIGURED"
+}

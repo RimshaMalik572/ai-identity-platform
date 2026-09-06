@@ -1,0 +1,29 @@
+{
+  "component": "Neo4j",
+  "purpose": "Identity Knowledge Graph",
+  "uri": "bolt://localhost:7687",
+  "database": "neo4j",
+  "username": "neo4j",
+  "password": "ENV_NEO4J_PASSWORD",
+  "connection_status": "CONFIGURED_NOT_CONNECTED",
+  "graph_entities": [
+    "User",
+    "Device",
+    "Document",
+    "Phone Number",
+    "IP Address",
+    "Biometric Profile",
+    "Fraud Case"
+  ],
+  "relationships": [
+    "USES_DEVICE",
+    "HAS_DOCUMENT",
+    "HAS_PHONE",
+    "USES_IP",
+    "HAS_BIOMETRIC",
+    "ASSOCIATED_WITH_FRAUD_CASE",
+    "DEVICE_SEEN_FROM_IP",
+    "DOCUMENT_VERIFIED_FOR",
+    "BIOMETRIC_VERIFIED_FOR"
+  ]
+}

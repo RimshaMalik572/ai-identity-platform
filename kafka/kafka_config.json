@@ -1,0 +1,22 @@
+{
+  "component": "Kafka",
+  "role": "event_bus",
+  "bootstrap_servers": [
+    "localhost:9092"
+  ],
+  "connection_status": "CONFIGURED_NOT_CONNECTED",
+  "topics": [
+    "identity.verification",
+    "biometric.processing",
+    "fraud.signals",
+    "trust.score",
+    "identity.alerts",
+    "identity.events"
+  ],
+  "event_driven_architecture": {
+    "enabled": true,
+    "producer": "KafkaProducer",
+    "consumer": "KafkaConsumer",
+    "serialization": "JSON"
+  }
+}

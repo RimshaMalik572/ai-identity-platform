@@ -1,0 +1,58 @@
+{
+  "project": "AI Identity Platform",
+  "package": "ai_identity_backend_final",
+  "generated_at": "2026-09-02T02:09:13.692957+00:00",
+  "modules": [
+    "Identity Verification",
+    "Deepfake Detection",
+    "Voice Authentication",
+    "Document Intelligence",
+    "Device Intelligence",
+    "Behavioral Biometrics",
+    "Geo-location",
+    "Historical Activity",
+    "Risk Indicators",
+    "Trust Scoring",
+    "AI Identity Copilot",
+    "Identity Knowledge Graph",
+    "Executive Dashboard",
+    "Alert Center",
+    "Fraud Intelligence Layer",
+    "End-to-End Integration"
+  ],
+  "backend": [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Neo4j",
+    "Redis",
+    "Kafka"
+  ],
+  "ai_stack": [
+    "PyTorch",
+    "OpenCV",
+    "InsightFace",
+    "YOLOv11",
+    "Whisper",
+    "PaddleOCR",
+    "Hugging Face Transformers",
+    "LangGraph",
+    "FAISS",
+    "NetworkX"
+  ],
+  "infrastructure_status": {
+    "PostgreSQL": "CONFIGURED_NOT_CONNECTED",
+    "Redis": "CONFIGURED_NOT_CONNECTED",
+    "Kafka": "CONFIGURED_NOT_CONNECTED",
+    "Neo4j": "CONFIGURED_NOT_CONNECTED"
+  },
+  "final_integration": {
+    "identity_score": 97.66,
+    "deepfake_probability": 72.9,
+    "trust_score": 80.36,
+    "fraud_risk_score": 50.0,
+    "fraud_risk_level": "MEDIUM",
+    "active_alerts": 2,
+    "final_decision": "MANUAL_REVIEW"
+  }
+}

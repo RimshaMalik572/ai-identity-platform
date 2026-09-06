@@ -1,0 +1,7 @@
+{
+  "component": "Kafka",
+  "broker": "localhost:9092",
+  "connection_status": "NOT_CONNECTED",
+  "connection_verified": false,
+  "publish_test": "NOT_TESTED"
+}
