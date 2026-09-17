@@ -1,80 +1,70 @@
-# AI Identity Platform
+# AI-236 — Enterprise Digital Identity, Trust & Deepfake Detection Platform
 
-AI-powered identity verification, biometric processing and fraud intelligence backend.
+An AI-powered enterprise digital trust platform combining identity verification, biometric intelligence, deepfake detection, document intelligence, fraud intelligence, trust scoring, knowledge graph analytics, AI-assisted investigation, and REST APIs.
 
-## Technology Stack
+---
 
-### Backend
-- Python
-- FastAPI
-- PostgreSQL
-- Neo4j
-- Redis
-- Kafka
+## 🌐 Evaluator Access
 
-### AI Stack
-- PyTorch
-- OpenCV
-- InsightFace
-- YOLOv11
-- Whisper
-- PaddleOCR
-- Hugging Face Transformers
-- LangGraph
-- FAISS
-- NetworkX
+### Live Project Showcase
+https://rimshamalik572.github.io/ai-identity-platform/
 
-## Implemented Modules
+### Complete Source Code & Backend
+https://github.com/RimshaMalik572/ai-identity-platform
 
-1. Identity Verification
-2. Deepfake Detection
-3. Voice Authentication
-4. Document Intelligence
-5. Device Intelligence
-6. Behavioral Biometrics
-7. Geo-location
-8. Historical Activity
-9. Risk Indicators
-10. Trust Scoring
-11. AI Identity Copilot
-12. Identity Knowledge Graph
-13. Executive Dashboard
-14. Alert Center
-15. Fraud Intelligence Layer
-16. End-to-End Integration
+### FastAPI API Gateway
+https://github.com/RimshaMalik572/ai-identity-platform/tree/main/api_gateway
 
-## Architecture
+---
 
-The platform follows an event-driven architecture containing an API Gateway, Identity Verification Pipeline, Biometric Processing Pipeline, Fraud Intelligence Layer, Knowledge Graph, Trust Scoring and Alert Center.
+## 📌 Project Overview
 
-See docs/ARCHITECTURE.md for details.
+This project implements an enterprise-oriented digital identity and trust platform designed to combine multiple identity, biometric, fraud, and AI intelligence signals into a unified verification and decision-support pipeline.
 
-## End-to-End Validation
+The platform integrates identity verification, deepfake assessment, voice authentication, document intelligence, device intelligence, behavioral biometrics, geo-location, historical activity, risk indicators, trust scoring, fraud intelligence, AI Identity Copilot, and identity knowledge graph capabilities.
 
-Identity Score: 97.66/100
+---
 
-Deepfake Probability: 72.90%
+## 🏗️ Architecture
 
-Trust Score: 80.36/100
+The platform follows a layered architecture:
 
-Fraud Intelligence Risk: 50.0/100
-
-Fraud Risk Level: MEDIUM
-
-Active Alerts: 2
-
-Final Decision: MANUAL_REVIEW
-
-## Infrastructure
-
-PostgreSQL, Redis, Kafka and Neo4j adapters/configurations are implemented.
-
-During Colab validation they were recorded as:
-
-CONFIGURED_NOT_CONNECTED
-
-No live connection is claimed without an actual running service.
-
-## Disclaimer
-
-The demonstrated AI outputs are engineering validation results and should not be interpreted as definitive forensic proof or production security guarantees.
+```text
+Client / Evaluator
+        │
+        ▼
+   API Gateway
+        │
+        ▼
+Identity & Biometric Pipeline
+        │
+        ├── Identity Verification
+        ├── Face Comparison
+        ├── Deepfake Detection
+        ├── Voice Authentication
+        └── Document Intelligence
+        │
+        ▼
+Risk & Trust Layer
+        │
+        ├── Device Intelligence
+        ├── Behavioral Biometrics
+        ├── Geo-location
+        ├── Historical Activity
+        ├── Risk Indicators
+        ├── Fraud Intelligence
+        └── Trust Scoring
+        │
+        ▼
+AI Intelligence Layer
+        │
+        ├── AI Identity Copilot
+        ├── Identity Knowledge Graph
+        └── FAISS Retrieval
+        │
+        ▼
+Monitoring & Decision Layer
+        │
+        ├── Alert Center
+        ├── Executive Dashboard
+        └── Final Decision
