@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI-236 | Digital Identity, Trust & Deepfake Detection</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07111f;
+    color: #e8eef7;
+    line-height: 1.7;
+}
+
+a {
+    color: #65b7ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+.hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at top right, #12365a 0, transparent 38%),
+        radial-gradient(circle at bottom left, #162a48 0, transparent 35%),
+        #07111f;
+    border-bottom: 1px solid #20344c;
+}
+
+.hero-content {
+    padding: 70px 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid #3d6f9e;
+    border-radius: 30px;
+    color: #8dcbff;
+    font-size: 13px;
+    margin-bottom: 22px;
+    background: #0c1c2f;
+}
+
+h1 {
+    font-size: clamp(38px, 6vw, 70px);
+    line-height: 1.08;
+    max-width: 950px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 850px;
+    color: #b8c7d9;
+    font-size: 18px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #39678f;
+    background: #102a45;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #183b60;
+    text-decoration: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(7,17,31,.95);
+    border-bottom: 1px solid #20344c;
+    backdrop-filter: blur(10px);
+}
+
+nav .container {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding: 14px 0;
+}
+
+nav a {
+    white-space: nowrap;
+    color: #bcd0e6;
+    font-size: 14px;
+}
+
+section {
+    padding: 75px 0;
+    border-bottom: 1px solid #17283c;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: #94a8be;
+    max-width: 850px;
+    margin-bottom: 35px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: #0c1b2c;
+    border: 1px solid #20364e;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #dcecff;
+}
+
+.card p {
+    color: #aebfd1;
+    font-size: 14px;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.metric {
+    background: #0c1b2c;
+    border: 1px solid #294764;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+}
+
+.metric .value {
+    font-size: 31px;
+    font-weight: bold;
+    color: #70c0ff;
+}
+
+.metric .label {
+    color: #aebfd1;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.architecture {
+    background: #0b1828;
+    border: 1px solid #29445f;
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+}
+
+.architecture img {
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0c1b2c;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 13px;
+    border: 1px solid #243c54;
+    text-align: left;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+th {
+    background: #12263d;
+    color: #dcecff;
+}
+
+td {
+    color: #b6c7d8;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 7px;
+    color: #b6c7d8;
+}
+
+.highlight {
+    border-left: 4px solid #65b7ff;
+    background: #0c1d30;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 6px;
+}
+
+.warning {
+    border-left: 4px solid #d5a83b;
+    background: #211d10;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 6px;
+}
+
+.success {
+    border-left: 4px solid #55c991;
+    background: #0d211a;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 6px;
+}
+
+.code {
+    background: #050b12;
+    border: 1px solid #20344c;
+    border-radius: 8px;
+    padding: 18px;
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+    color: #bfe1ff;
+    font-size: 13px;
+}
+
+footer {
+    padding: 45px 0;
+    text-align: center;
+    color: #8296aa;
+    background: #050c15;
+}
+
+@media(max-width:700px) {
+    .hero {
+        min-height: auto;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+<div class="container hero-content">
+
+<span class="badge">AI-236 • Enterprise AI Engineering Project</span>
+
+<h1>
+Enterprise Digital Identity, Trust & Deepfake Detection Platform
+</h1>
+
+<p>
+An AI-powered digital trust platform combining identity verification,
+biometric intelligence, deepfake detection, document intelligence,
+fraud intelligence, trust scoring, knowledge graph analytics,
+AI-assisted investigation and REST APIs.
+</p>
+
+<div class="buttons">
+<a class="btn" href="#architecture">View Architecture</a>
+<a class="btn" href="#results">Evaluation Results</a>
+<a class="btn" href="#demo">Live Demo</a>
+<a class="btn" href="ARCHITECTURE_DIAGRAM.pdf">Architecture PDF</a>
+<a class="btn" href="AI_Identity_Platform_Technical_Presentation.pptx">
+Technical Presentation
+</a>
+</div>
+
+</div>
+</header>
+
+<nav>
+<div class="container">
+<a href="#overview">Overview</a>
+<a href="#architecture">Architecture</a>
+<a href="#modules">Modules</a>
+<a href="#ai">AI Stack</a>
+<a href="#results">Results</a>
+<a href="#graph">Knowledge Graph</a>
+<a href="#apis">REST APIs</a>
+<a href="#demo">Demo</a>
+<a href="#docs">Documentation</a>
+<a href="#limitations">Limitations</a>
+</div>
+</nav>
+
+<section id="overview">
+<div class="container">
+
+<h2 class="section-title">Project Overview</h2>
+
+<p class="section-subtitle">
+The platform addresses digital identity fraud, deepfake impersonation,
+fake documents, synthetic identities and identity-related security risks.
+It combines multiple AI and contextual signals into a unified trust
+and investigation workflow.
+</p>
+
+<div class="highlight">
+<strong>Core decision flow:</strong><br>
+Identity Evidence → Biometrics → Deepfake Analysis →
+Document Intelligence → Device/Behavior/Geo/History →
+Risk Assessment → Trust Score → Fraud Intelligence →
+Knowledge Graph → Alerts → AI Copilot → Final Decision
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Business Problem</h3>
+<p>
+Modern digital services face deepfake KYC attacks, AI-generated voice
+impersonation, forged documents, account takeover, synthetic identities
+and identity theft.
+</p>
+</div>
+
+<div class="card">
+<h3>Project Objective</h3>
+<p>
+Build an enterprise-oriented AI platform that verifies identity,
+detects manipulated media, evaluates risk and provides explainable
+decision support.
+</p>
+</div>
+
+<div class="card">
+<h3>Architecture Style</h3>
+<p>
+Layered architecture with API Gateway, identity and biometric pipelines,
+fraud intelligence, trust scoring, knowledge graph and event-driven
+integration.
+</p>
+</div>
+
+<div class="card">
+<h3>Delivery</h3>
+<p>
+Complete backend package, AI modules, REST APIs, documentation,
+architecture diagram, technical presentation and live demonstration path.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="architecture">
+<div class="container">
+
+<h2 class="section-title">System Architecture</h2>
+
+<p class="section-subtitle">
+The architecture separates API access, identity processing,
+AI intelligence, risk/trust processing, graph analytics and
+infrastructure services.
+</p>
+
+<div class="architecture">
+<img src="ARCHITECTURE_DIAGRAM.png"
+     alt="AI Identity Platform Architecture Diagram">
+</div>
+
+<div class="grid" style="margin-top:25px;">
+
+<div class="card">
+<h3>API Gateway</h3>
+<p>FastAPI REST entry point for verification, fraud, trust, alerts, graph and event operations.</p>
+</div>
+
+<div class="card">
+<h3>Identity & Biometric Pipeline</h3>
+<p>Processes identity evidence, face comparison, voice and document intelligence.</p>
+</div>
+
+<div class="card">
+<h3>Fraud & Trust Layer</h3>
+<p>Combines risk indicators and fraud signals to produce trust and verification decisions.</p>
+</div>
+
+<div class="card">
+<h3>Knowledge Graph</h3>
+<p>Connects identity entities and relationships for investigation and anomaly detection.</p>
+</div>
+
+<div class="card">
+<h3>Event-Driven Integration</h3>
+<p>Kafka topics and event schemas are configured for asynchronous enterprise workflows.</p>
+</div>
+
+<div class="card">
+<h3>Infrastructure</h3>
+<p>PostgreSQL, Redis, Kafka and Neo4j adapters/configuration are included.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="modules">
+<div class="container">
+
+<h2 class="section-title">Core Modules</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Identity Verification Engine</h3>
+<p>Identity verification scoring and decision pipeline.</p>
+</div>
+
+<div class="card">
+<h3>Face & Liveness</h3>
+<p>Face comparison and biometric evidence processing.</p>
+</div>
+
+<div class="card">
+<h3>Deepfake Detection</h3>
+<p>AI-based real/fake classification and fake probability estimation.</p>
+</div>
+
+<div class="card">
+<h3>Voice Authentication</h3>
+<p>Voice authentication intelligence and scoring.</p>
+</div>
+
+<div class="card">
+<h3>Document Intelligence</h3>
+<p>OCR and document intelligence / validation pipeline.</p>
+</div>
+
+<div class="card">
+<h3>Device Intelligence</h3>
+<p>Device-related identity and security signal.</p>
+</div>
+
+<div class="card">
+<h3>Behavioral Biometrics</h3>
+<p>Behavioral identity signal used in trust assessment.</p>
+</div>
+
+<div class="card">
+<h3>Geo-location</h3>
+<p>Geographic identity/context signal.</p>
+</div>
+
+<div class="card">
+<h3>Historical Activity</h3>
+<p>Historical identity activity signal.</p>
+</div>
+
+<div class="card">
+<h3>Risk Indicators</h3>
+<p>Aggregates identity and security risk evidence.</p>
+</div>
+
+<div class="card">
+<h3>Trust Scoring Engine</h3>
+<p>Combines nine available signals into a trust assessment.</p>
+</div>
+
+<div class="card">
+<h3>AI Identity Copilot</h3>
+<p>Analyst Q&A, face comparison, deepfake explanation, investigation summary and action recommendation.</p>
+</div>
+
+<div class="card">
+<h3>Identity Knowledge Graph</h3>
+<p>Models relationships between identity entities and detects anomalies.</p>
+</div>
+
+<div class="card">
+<h3>Executive Dashboard</h3>
+<p>Surfaces verification, deepfake, trust, risk and AI decision metrics.</p>
+</div>
+
+<div class="card">
+<h3>Alert Center</h3>
+<p>Generates security and manual-review alerts.</p>
+</div>
+
+<div class="card">
+<h3>Fraud Intelligence</h3>
+<p>Transforms fraud indicators into fraud risk and recommended action.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="ai">
+<div class="container">
+
+<h2 class="section-title">AI / Technology Stack</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Backend</h3>
+<p>Python • FastAPI</p>
+</div>
+
+<div class="card">
+<h3>Computer Vision</h3>
+<p>PyTorch • OpenCV • InsightFace • YOLOv11</p>
+</div>
+
+<div class="card">
+<h3>Voice AI</h3>
+<p>Whisper • Voice biometric processing</p>
+</div>
+
+<div class="card">
+<h3>Document AI</h3>
+<p>PaddleOCR</p>
+</div>
+
+<div class="card">
+<h3>NLP / AI Agents</h3>
+<p>Hugging Face Transformers • LangGraph</p>
+</div>
+
+<div class="card">
+<h3>Vector / Graph</h3>
+<p>FAISS • NetworkX • Neo4j</p>
+</div>
+
+<div class="card">
+<h3>Data Infrastructure</h3>
+<p>PostgreSQL • Redis • Kafka</p>
+</div>
+
+<div class="card">
+<h3>Architecture</h3>
+<p>Event-Driven Architecture • API Gateway • AI Pipelines</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="results">
+<div class="container">
+
+<h2 class="section-title">Verified Evaluation Results</h2>
+
+<p class="section-subtitle">
+These are the project's verified validation outputs. They should be
+distinguished from demonstration-only API calculations.
+</p>
+
+<div class="metric-grid">
+
+<div class="metric">
+<div class="value">97.66</div>
+<div class="label">Identity Verification / 100</div>
+</div>
+
+<div class="metric">
+<div class="value">72.90%</div>
+<div class="label">Deepfake Fake Probability</div>
+</div>
+
+<div class="metric">
+<div class="value">80.36</div>
+<div class="label">Trust Score / 100</div>
+</div>
+
+<div class="metric">
+<div class="value">50.0</div>
+<div class="label">Fraud Risk / 100</div>
+</div>
+
+<div class="metric">
+<div class="value">0.8606</div>
+<div class="label">Same-Person Face Similarity</div>
+</div>
+
+<div class="metric">
+<div class="value">6/6</div>
+<div class="label">AI Copilot Tests</div>
+</div>
+
+</div>
+
+<h3 style="margin-top:40px;margin-bottom:15px;">Deepfake Validation</h3>
+
+<table>
+<tr>
+<th>Evaluation Set</th>
+<th>Samples</th>
+<th>Accuracy</th>
+<th>Balanced Accuracy</th>
+<th>Macro F1</th>
+</tr>
+
+<tr>
+<td>Combined Validation</td>
+<td>1258</td>
+<td>76.07%</td>
+<td>76.15%</td>
+<td>76.05%</td>
+</tr>
+
+<tr>
+<td>External Hard Validation</td>
+<td>258</td>
+<td>70.93%</td>
+<td>69.29%</td>
+<td>68.96%</td>
+</tr>
+
+<tr>
+<td>Original Validation</td>
+<td>1000</td>
+<td>77.40%</td>
+<td>77.40%</td>
+<td>77.16%</td>
+</tr>
+</table>
+
+<div class="highlight">
+<strong>Deepfake model:</strong> EfficientNet-B0 • Input 224×224 •
+Class mapping: Real = 0, Fake = 1.
+<br><br>
+The 72.90% fake probability is an AI risk estimate for the tested
+sample, not forensic proof.
+</div>
+
+<h3 style="margin-top:40px;margin-bottom:15px;">Trust & Fraud Intelligence</h3>
+
+<table>
+<tr>
+<th>Signal</th>
+<th>Verified Result</th>
+</tr>
+
+<tr>
+<td>Trust Score</td>
+<td>80.36 / 100 — LOW risk</td>
+</tr>
+
+<tr>
+<td>Evidence Coverage</td>
+<td>100%</td>
+</tr>
+
+<tr>
+<td>Available Trust Signals</td>
+<td>9</td>
+</tr>
+
+<tr>
+<td>Fraud Risk Score</td>
+<td>50.0 / 100 — MEDIUM</td>
+</tr>
+
+<tr>
+<td>Fraud Recommendation</td>
+<td>ADDITIONAL_VERIFICATION</td>
+</tr>
+
+<tr>
+<td>Final E2E Decision</td>
+<td>MANUAL_REVIEW</td>
+</tr>
+</table>
+
+</div>
+</section>
+
+<section id="graph">
+<div class="container">
+
+<h2 class="section-title">Identity Knowledge Graph</h2>
+
+<p class="section-subtitle">
+The graph provides relationship-based identity intelligence and
+supports investigation of unusual identity/device relationships.
+</p>
+
+<div class="metric-grid">
+
+<div class="metric">
+<div class="value">7</div>
+<div class="label">Initial Nodes</div>
+</div>
+
+<div class="metric">
+<div class="value">9</div>
+<div class="label">Initial Relationships</div>
+</div>
+
+<div class="metric">
+<div class="value">1</div>
+<div class="label">Controlled Anomaly Detected</div>
+</div>
+
+</div>
+
+<div class="grid" style="margin-top:25px;">
+
+<div class="card">
+<h3>Entity Types</h3>
+<ul>
+<li>User</li>
+<li>Device</li>
+<li>Document</li>
+<li>Phone Number</li>
+<li>IP Address</li>
+<li>Biometric Profile</li>
+<li>Fraud Case</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Relationship Types</h3>
+<ul>
+<li>USES_DEVICE</li>
+<li>HAS_DOCUMENT</li>
+<li>HAS_PHONE</li>
+<li>USES_IP</li>
+<li>HAS_BIOMETRIC</li>
+<li>ASSOCIATED_WITH_FRAUD_CASE</li>
+<li>DEVICE_SEEN_FROM_IP</li>
+<li>DOCUMENT_VERIFIED_FOR</li>
+<li>BIOMETRIC_VERIFIED_FOR</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Controlled Anomaly</h3>
+<p>
+USER_002 was associated with DEVICE_001. The device was associated
+with two users, and the graph logic detected the device-sharing anomaly.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="apis">
+<div class="container">
+
+<h2 class="section-title">REST API</h2>
+
+<p class="section-subtitle">
+The FastAPI API Gateway exposes the main platform services through
+REST endpoints and Swagger documentation.
+</p>
+
+<table>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>/</td>
+<td>API Gateway root/status</td>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>/health</td>
+<td>Health check</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>/api/v1/identity/verify</td>
+<td>Identity verification</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>/api/v1/fraud/signals</td>
+<td>Register fraud/deepfake signal</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>/api/v1/trust/score</td>
+<td>Trust scoring endpoint</td>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>/api/v1/biometric/status</td>
+<td>Biometric service status</td>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>/api/v1/graph/status</td>
+<td>Knowledge graph status</td>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>/api/v1/alerts</td>
+<td>Alert Center</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>/api/v1/events/publish</td>
+<td>Event publishing</td>
+</tr>
+
+</table>
+
+</div>
+</section>
+
+<section id="demo">
+<div class="container">
+
+<h2 class="section-title">Live Demonstration</h2>
+
+<div class="success">
+<strong>Verified demonstration path:</strong><br>
+FastAPI running in Google Colab → Cloudflare HTTPS Quick Tunnel →
+Public Swagger UI.
+</div>
+
+<h3>Recommended Demo Sequence</h3>
+
+<div class="code">
+1. Open Swagger /docs
+2. GET /health
+3. POST /api/v1/identity/verify
+4. POST /api/v1/fraud/signals
+5. POST /api/v1/trust/score
+6. GET /api/v1/alerts
+7. Explain final MANUAL_REVIEW decision
+</div>
+
+<div class="highlight">
+<strong>Important:</strong>
+The live Colab/Cloudflare deployment is a temporary demonstration
+environment. It is not claimed as permanent production hosting.
+</div>
+
+</div>
+</section>
+
+<section id="docs">
+<div class="container">
+
+<h2 class="section-title">Project Documentation</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Architecture Diagram</h3>
+<p>Visual system architecture.</p>
+<br>
+<a href="ARCHITECTURE_DIAGRAM.png">Open PNG</a><br>
+<a href="ARCHITECTURE_DIAGRAM.pdf">Open PDF</a>
+</div>
+
+<div class="card">
+<h3>Deployment Guide</h3>
+<p>Deployment, API and demonstration instructions.</p>
+<br>
+<a href="DEPLOYMENT_GUIDE.md">Open Deployment Guide</a>
+</div>
+
+<div class="card">
+<h3>Technical Presentation</h3>
+<p>Complete 16-slide technical presentation.</p>
+<br>
+<a href="AI_Identity_Platform_Technical_Presentation.pptx">
+Open Presentation
+</a>
+</div>
+
+<div class="card">
+<h3>Source Code</h3>
+<p>Complete project source code and backend architecture.</p>
+<br>
+<a href="../">Browse Source Repository</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="limitations">
+<div class="container">
+
+<h2 class="section-title">Implementation Status & Limitations</h2>
+
+<p class="section-subtitle">
+The project clearly separates verified prototype capabilities from
+production-scale targets and advanced features requiring additional
+hardening.
+</p>
+
+<div class="warning">
+
+<strong>Production infrastructure:</strong><br>
+PostgreSQL, Redis, Kafka and Neo4j adapters/configurations are implemented,
+but their live connections were not established during Colab validation.
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Scale Targets</h3>
+<p>
+250M identity records, sub-2-second verification, high availability
+and horizontal scaling are architecture targets, not load-tested claims.
+</p>
+</div>
+
+<div class="card">
+<h3>Face Liveness</h3>
+<p>
+Face comparison was verified. Full active/passive liveness,
+3D face validation and complete spoof testing were not separately
+demonstrated.
+</p>
+</div>
+
+<div class="card">
+<h3>Deepfake Scope</h3>
+<p>
+Core image/frame classification was implemented. Advanced lip-sync,
+temporal consistency and metadata-forensics were not separately validated.
+</p>
+</div>
+
+<div class="card">
+<h3>Voice Scope</h3>
+<p>
+Voice authentication and scoring were implemented. Every requested
+voice cloning/replay/manipulation detector was not separately demonstrated.
+</p>
+</div>
+
+<div class="card">
+<h3>Dashboard</h3>
+<p>
+The Executive Dashboard module provides validated metrics. It is not
+presented as a fully polished production frontend.
+</p>
+</div>
+
+<div class="card">
+<h3>Unavailable Metrics</h3>
+<p>
+Fraud Attempt Count and historical risk time-series were correctly
+marked unavailable rather than fabricated.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">Final Project Status</h2>
+
+<div class="success">
+<strong>FINAL SUBMISSION PACKAGE READY</strong><br><br>
+17/17 submission checks passed.<br>
+ZIP integrity: PASS.<br>
+105 files verified inside final ZIP.<br>
+Architecture documentation: PASS.<br>
+Deployment Guide: PASS.<br>
+Technical Presentation: PASS.<br>
+Live demonstration path: VERIFIED.
+</div>
+
+<h3>Final Decision Flow</h3>
+
+<div class="code">
+Identity Score       = 97.66 / 100
+Deepfake Probability = 72.90% Fake
+Trust Score          = 80.36 / 100
+Fraud Risk           = 50.0 / 100 — MEDIUM
+Face Similarity      = 0.8606
+AI Copilot           = 6/6 PASS
+Active Alerts        = 2
+Final Decision       = MANUAL_REVIEW
+</div>
+
+<div class="highlight">
+<strong>Evaluator takeaway:</strong><br>
+The platform demonstrates an integrated AI identity-trust workflow
+rather than relying on a single detection model. Multiple evidence
+sources are combined into risk, trust, fraud intelligence, graph
+analytics, alerts and explainable decision support.
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>
+AI-236 — Enterprise Digital Identity, Trust & Deepfake Detection Platform
+</p>
+<p style="margin-top:8px;">
+Final Evaluation Showcase • AI Engineering Project
+</p>
+</div>
+</footer>
+
+</body>
+</html>
